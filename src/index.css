@@ -1,0 +1,51 @@
+/* body{
+    background: lightcyan;
+}
+
+.card{
+
+    height: 70vh;
+    overflow: hidden;
+}  
+span{
+    height: 2%;
+}
+.card-img-top{
+    
+    height: 45%;
+}
+.card-body{
+    height: 50%;
+}
+.card-text{
+    
+    overflow: hidden;
+} */
+
+body{
+    background: lightcyan;
+}
+
+.card{
+    height: 70vh;
+    overflow: hidden;
+    
+}  
+span{
+    height: 2%;
+}
+.card-img-top{
+    
+    height: 50%;
+}
+.card-body{
+    height: 50%;
+    overflow: hidden;
+}
+.card h1{
+    height: 20%;
+    
+}
+
+
+
