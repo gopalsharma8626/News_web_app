@@ -1,18 +1,16 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React, { Component } from 'react'
 import NavBar from './Components/NavBar';
 import News from './Components/News';
-// import { Routes ,Route } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Switch,
   Route
- 
 } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
 export default class App extends Component {
-   
+  pageSize = 5;
   state = {
     progress:0
   }

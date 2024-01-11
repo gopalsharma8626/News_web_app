@@ -8,7 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export class News extends Component {
   static defaultProps ={
      country: 'in',
-
+     pageSize: 8,
      category:'general',
   }
   static propTypes = {
@@ -60,7 +60,7 @@ capitalizeFirstLetter = (string)=> {
     }
     fetchMoreData = async () => {  
         this.setState({page: this.state.page + 1})
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=58bbd702116247e2874fbe3c116d14a7&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=58bbd702116247e2874fbe3c116d14a7&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedata = await data.json()
         this.setState({
@@ -78,16 +78,15 @@ capitalizeFirstLetter = (string)=> {
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
                     hasMore={this.state.articles.length !== this.state.totalResults}
-                    
-                    loader={<Spinner/>}
+                    // loader={<Spinner/>}
                 > 
                 <div className='container'>
                 <div className='row'>
                 
                      { this.state.articles.map((element) => {
                         return <div className='col-md-4' key={element.url}>
-                            <Newsitem title={element.title ? element.title.slice(10):""} 
-                            description={element.description?element.description.slice(10) : ""}
+                            <Newsitem title={element.title ? element.title:""} 
+                            description={element.description?element.description : ""}
                             imageurl={element.urlToImage} newsurl={element.url}
                             author ={element.author} date={element.publishedAt} source={element.source.name}/>
                         </div>
